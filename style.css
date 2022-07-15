@@ -1,3 +1,127 @@
-*{
-    color: red;
+@import url("https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,700;1,400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Marvel", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+img {
+  width: 100%;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.not-clickable {
+  cursor: not-allowed;
+}
+/*----------------------------------------------------------------
+NAV BAR
+------------------------------------------------------------------*/
+#nav {
+  background-color: black;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px;
+}
+.nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.nav__logo--container {
+  height: 40px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav__links {
+  display: flex;
+}
+.nav__list {
+  padding: 20px 0;
+}
+.nav-link {
+  padding: 0 8px;
+  font-size: 20px;
+  text-decoration: none;
+  color: red;
+  font-weight: 700;
+}
+/*----------------------------------------------------------------
+BODY
+------------------------------------------------------------------*/
+#body {
+  /* background-color: #696969; */
+  color: white;
+}
+.container {
+  padding: 56px 0;
+}
+.row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.section__title{
+    font-size: 45px;
+}
+.input__wrapper{
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 2px solid black;
+    position: relative;
+    display: block;
+}
+input{
+    height: 60px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    max-width: 800px;
+    padding-left: 20px;
+}
+.search__symbol{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    padding: 0 20px 0 8px;
+    color: #6030b1;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-magnifying-glass{
+    overflow: visible;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    display: inline-block;
+    font-size: 20px;
+    color: black;
 }
