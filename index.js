@@ -1,9 +1,12 @@
 //218ad171663f8304bfabed8c5e0ecd2d
-async function main() {
+
+async function getCharacterSearch(searchCharacterinput) {
   
-  const heroId = await getCharacterID("x-men");
-  console.log(heroId);
+  const heroId = await getCharacterID(searchCharacterinput);
+//   console.log(heroId);
   if (heroId == null){
+    const comicsWrapper = document.querySelector(".main__comics");
+    comicsWrapper.innerHTML = "L BOZO, NO RESULTS"
     return;
   }
   getData(heroId);
@@ -13,26 +16,26 @@ async function main() {
   //   comicsWrapper.innerHTML = comicsHTML.join("");
 }
 
-main();
-
 async function getData(heroIds) {
+    let allComicHTML = "";
+    const comicsWrapper = document.querySelector(".main__comics");
   
     //   const comicResponse = await fetch("https://gateway.marvel.com:443/v1/public/comics?format=comic&apikey=218ad171663f8304bfabed8c5e0ecd2d");
     for(i=0;i<heroIds.length;i++)
     {
-
-    
       const comicResponse = await fetch(`https://gateway.marvel.com:443/v1/public/characters/${heroIds[i].id}/comics?apikey=218ad171663f8304bfabed8c5e0ecd2d`);
 
 //   console.log(comicResponse);
    const marvelData = await comicResponse.json();
 //    console.log(marvelData);
   const comicsData = marvelData.data.results;
-  const comicsWrapper = document.querySelector(".main__comics");
+//   const comicsWrapper = document.querySelector(".main__comics");
   const comicsHTML = comicsData.map((comic) => htmlcomic(comic));
     // console.log(comicsHTML);
-  comicsWrapper.innerHTML += comicsHTML.join("");
+    allComicHTML += comicsHTML.join("");
     }
+    comicsWrapper.innerHTML = allComicHTML;
+    
 }
 function status(res) {
     if (!res.ok) {
@@ -70,3 +73,15 @@ function htmlcomic(comic) {
     </div>
     `;
 }
+
+function searchComic(event){
+    event.preventDefault();
+    console.log("searching...");
+    const searchInput = document.getElementsByClassName("input__box");
+    const searchCharacterinput = searchInput[0].value
+    console.log(searchCharacterinput);
+    getCharacterSearch(searchCharacterinput);
+    
+}
+
+// getCharacterSearch();
