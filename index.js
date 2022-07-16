@@ -83,6 +83,10 @@ function searchComic(event){
     const searchInput = document.getElementsByClassName("input__box");
     const searchCharacterinput = searchInput[0].value
     console.log(searchCharacterinput);
+    if(!searchCharacterinput)               //handle empty string
+    {
+        return;
+    }
     getCharacterSearch(searchCharacterinput);
     
 }
