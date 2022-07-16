@@ -1,51 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MARVEL-BROWSE</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="https://kit.fontawesome.com/6b8aa863e0.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <section id="nav">
-      <div class="nav__container">
-        <div class="nav__logo--container">
-            <img
-              class="nav__logo"
-              src="http://assets.stickpng.com/images/585f9333cb11b227491c3581.png"
-              alt=""
-            />
-          </div>
-          <ul class="nav__links">
-            <li class="nav__list">
-              <a class="nav-link not-clickable" href="">HOME</a>
-            </li>
-            <li class="nav__list">
-              <a class="nav-link" href="#">FIND YOUR COMIC</a>
-            </li>
-            <li class="nav__list">
-              <a class="nav-link nav-link--primary not-clickable" href="">CONTACT</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section id="body">
-        <div class="container">
-            <div class="row">
-                <div class="search">
-                    <h1 class="section__title">Browse Our Comics</h1>
-                    <div class="input__wrapper">
-                        <input class="input__box" type="text" placeholder="search by comic book name">
-                        <div class="search__symbol">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <section id="nav">
+            <div class="nav__container">
+                <div class="nav__logo--container">
+                    <img class="nav__logo" src="./logo.png" alt="" />
+                </div>
+                <ul class="nav__links">
+                    <li class="nav__list">
+                        <a class="nav-link not-clickable" href="">HOME</a>
+                    </li>
+                    <li class="nav__list clickable">
+                        <a class="nav-link" href="#">FIND YOUR COMIC</a>
+                    </li>
+                    <li class="nav__list">
+                        <a class="nav-link nav-link--primary not-clickable" href="">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="body">
+            <div class="container">
+                <div class="row">
+                    <div class="search">
+                        <h1 class="section__title">Browse Our Comics</h1>
+                        <form action="" class="input__wrapper">
+                            <input class="input__box" type="text" placeholder="search by comic book character">
+                            <button class="search__button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
+    </section>
+    </div>
+    <section id="comics">
+        <div class="container">
+            <div class="row">
+                <div class="comics__header">
+                    <h2 class="section__title">All Comics</h2>
+                    <select id="filter" onchange="filterBooks(event)">
+                        <option value="" disabled selected>Sort</option>
+                        <option value="YEAR">YEAR</option>
+                    </select>
+                </div>
+                <div class="main__comics comics">
+                    <!-- <div class="comic">    -->
+                        <!-- <figure class="comic__img--wrapper">
+                          <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/c/80/4bc5fe7a308d7.jpg" alt="">
+                        </figure>
+                        <div class="comic__title">
+                          COMIC TITLE
+                        </div>
+                    </div>
+                    <div class="comic">   
+                        <figure class="comic__img--wrapper">
+                          <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/2/f0/4bc6670c80007.jpg" alt="">
+                        </figure>
+                        <div class="comic__title">
+                          COMIC TITLE
+                        </div>
+                    </div>
+                    <div class="comic">   
+                        <figure class="comic__img--wrapper">
+                          <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/9/d0/58b5cfb6d5239.jpg" alt="">
+                        </figure>
+                        <div class="comic__title">
+                          COMIC TITLE
+                        </div>
+                    </div>
+                    <div class="comic">   
+                        <figure class="comic__img--wrapper">
+                          <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/9/b0/4c7d666c0e58a.jpg" alt="">
+                        </figure>
+                        <div class="comic__title">
+                          COMIC TITLE
+                        </div>
+                    </div> -->
+                    <!-- <div class="main__comics comics">
+                        <div class="comic">   
+                            <figure class="comic__img--wrapper">
+                              <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/c/80/4bc5fe7a308d7.jpg" alt="">
+                            </figure>
+                            <div class="comic__title">
+                              COMIC TITLE
+                            </div>
+                        </div>
+                        <div class="comic">   
+                            <figure class="comic__img--wrapper">
+                              <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/2/f0/4bc6670c80007.jpg" alt="">
+                            </figure>
+                            <div class="comic__title">
+                              COMIC TITLE
+                            </div>
+                        </div>
+                        <div class="comic">   
+                            <figure class="comic__img--wrapper">
+                              <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/9/d0/58b5cfb6d5239.jpg" alt="">
+                            </figure>
+                            <div class="comic__title">
+                              COMIC TITLE
+                            </div>
+                        </div>
+                        <div class="comic">   
+                            <figure class="comic__img--wrapper">
+                              <img class="book__img" src="http://i.annihil.us/u/prod/marvel/i/mg/9/b0/4c7d666c0e58a.jpg" alt="">
+                            </figure>
+                            <div class="comic__title">
+                              COMIC TITLE
+                            </div>
+                        </div>
+                </div> -->
+            </div>
         </div>
     </section>
-  </body>
+</body>
 </html>

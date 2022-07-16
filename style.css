@@ -17,14 +17,30 @@ li {
 a {
   text-decoration: none;
 }
+.clickable {
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.clickable:hover .nav-link {
+  text-decoration: underline;
+}
+.clickable:hover {
+  transform: scale(1.1);
+}
 .not-clickable {
   cursor: not-allowed;
+}
+.header {
+  background-image: linear-gradient(rgba(0, 8, 51, 0.7), rgba(0, 8, 51, 0.7)),
+    url("https://www.sideshow.com/storage/product-images/910004/marvel-classics-comic-panel-wallpaper-mural_marvel_gallery_61bbecf8c69c9.jpg");
+  /* background-image: url("https://www.sideshow.com/storage/product-images/910004/marvel-classics-comic-panel-wallpaper-mural_marvel_gallery_61bbecf8c69c9.jpg"); */
+  background-position: center;
+  background-repeat: repeat-x;
 }
 /*----------------------------------------------------------------
 NAV BAR
 ------------------------------------------------------------------*/
 #nav {
-  background-color: black;
   height: 80px;
   display: flex;
   align-items: center;
@@ -56,7 +72,7 @@ NAV BAR
   padding: 0 8px;
   font-size: 20px;
   text-decoration: none;
-  color: red;
+  color: white;
   font-weight: 700;
 }
 /*----------------------------------------------------------------
@@ -74,54 +90,96 @@ BODY
   max-width: 1200px;
   margin: 0 auto;
 }
-.search{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-.section__title{
-    font-size: 45px;
+.section__title {
+  font-size: 45px;
 }
-.input__wrapper{
-    width: 100%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: 50px;
-    overflow: hidden;
-    border: 2px solid black;
-    position: relative;
-    display: block;
+.input__wrapper {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 60px;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px) saturate(180%);
 }
-input{
-    height: 60px;
-    width: 100%;
-    font-size: 20px;
-    font-weight: 700;
-    max-width: 800px;
-    padding-left: 20px;
+.input__box {
+  background: transparent;
+  width: 90%;
+  border: none;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 24px;
+  font-weight: bold 700;
+  color: black;
 }
-.search__symbol{
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 10000;
-    padding: 0 20px 0 8px;
-    color: #6030b1;
-    font-size: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.fa-magnifying-glass {
+  width: 25px;
+  height: 25px;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.fa-magnifying-glass{
-    overflow: visible;
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.125em;
-    display: inline-block;
-    font-size: 20px;
-    color: black;
+.search__button {
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: #58629b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+/*----------------------------------------------------------------
+COMICS
+------------------------------------------------------------------*/
+.comics__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+select {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 200px;
+}
+.section__title {
+  text-align: center;
+  font-size: 32px;
+}
+.comics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.comic {
+  width: 25%;
+  padding: 24px;
+}
+.comic__title{
+  font-size: 20px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.comic__title:hover{
+  text-decoration: underline;
+  cursor: not-allowed;
 }
