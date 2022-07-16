@@ -6,7 +6,7 @@ async function getCharacterSearch(searchCharacterinput) {
 //   console.log(heroId);
   if (heroId == null){
     const comicsWrapper = document.querySelector(".main__comics");
-    comicsWrapper.innerHTML = "L BOZO, NO RESULTS"
+    comicsWrapper.innerHTML = `L BOZO, 0 results for \"${searchCharacterinput.toUpperCase()}\". Also try entering the first letters of the heroes name. (e.g. \"spid\" for spider-man)`
     return;
   }
   getData(heroId);
@@ -18,6 +18,7 @@ async function getCharacterSearch(searchCharacterinput) {
 
 async function getData(heroIds) {
     let allComicHTML = "";
+    let resultsCount = 0;
     const comicsWrapper = document.querySelector(".main__comics");
   
     //   const comicResponse = await fetch("https://gateway.marvel.com:443/v1/public/comics?format=comic&apikey=218ad171663f8304bfabed8c5e0ecd2d");
@@ -29,11 +30,13 @@ async function getData(heroIds) {
    const marvelData = await comicResponse.json();
 //    console.log(marvelData);
   const comicsData = marvelData.data.results;
+  resultsCount+=comicsData.length;
 //   const comicsWrapper = document.querySelector(".main__comics");
   const comicsHTML = comicsData.map((comic) => htmlcomic(comic));
     // console.log(comicsHTML);
     allComicHTML += comicsHTML.join("");
     }
+    console.log(resultsCount);
     comicsWrapper.innerHTML = allComicHTML;
     
 }
@@ -50,10 +53,10 @@ async function getCharacterID(heroName) {
   const heroData = await heroFetchData.json();
     const heroStartsWithData = await fetch(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${heroName}&apikey=218ad171663f8304bfabed8c5e0ecd2d`);
     const heroDataStarts = await heroStartsWithData.json();
-    console.log(heroDataStarts.data.results);
+    // console.log(heroDataStarts.data.results);
   let hero = heroData.data.results;
   hero = hero.concat(heroDataStarts.data.results);
-  console.log(hero);
+//   console.log(hero);
   if(hero.length ===0){
     return null;
   }
@@ -65,7 +68,7 @@ function htmlcomic(comic) {
   return `
     <div class="comic">   
         <figure class="comic__img--wrapper">
-            <img class="book__img" src="${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}" alt="">
+            <img class="book__img" src="${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}" alt="">
         </figure>
         <div class="comic__title">
             ${comic.title}
