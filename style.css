@@ -19,10 +19,10 @@ a {
 }
 .clickable {
   cursor: pointer;
-  transition: all 300ms ease;
+  transition:all 300ms ease;
 }
 .clickable:hover .nav-link {
-  text-decoration: underline;
+  color: red;
 }
 .clickable:hover {
   transform: scale(1.1);
@@ -37,6 +37,7 @@ a {
   background-position: center;
   background-repeat: repeat-x;
 }
+
 /*----------------------------------------------------------------
 NAV BAR
 ------------------------------------------------------------------*/
@@ -106,20 +107,49 @@ BODY
   background: rgba(255, 255, 255, 0.55);
   display: flex;
   align-items: center;
+  /* justify-content: center; */
   justify-content: space-between;
   border-radius: 60px;
   padding: 10px 20px;
   backdrop-filter: blur(4px) saturate(180%);
+  animation: slideOut 2500ms ease;
 }
 .input__box {
   background: transparent;
-  width: 90%;
+  /* width: 90%; */
+  flex: 1;
   border: none;
   outline: none;
   padding: 24px 20px;
   font-size: 24px;
   font-weight: bold 700;
   color: black;
+  animation: slideOut-text 2500ms;
+}
+::placeholder {
+  visibility: visible;
+}
+@keyframes slideOut {
+  0% {
+    width: 0;
+    
+  }
+
+  100% {
+    width: 90%;
+    
+  }
+}
+  @keyframes slideOut-text{
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+  
+    100% {
+      width: 90%;
+      opacity: 100%;
+    }
 }
 .fa-magnifying-glass {
   width: 25px;
@@ -141,6 +171,10 @@ BODY
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.search__button:active {
+  /* add bounce animation when clicking any button*/
+  transform: translateY(1px);
 }
 /*----------------------------------------------------------------
 COMICS
@@ -175,12 +209,12 @@ select {
   width: 25%;
   padding: 24px;
 }
-.comic__title{
+.comic__title {
   font-size: 20px;
   margin-bottom: 8px;
   text-align: center;
 }
-.comic__title:hover{
+.comic__title:hover {
   text-decoration: underline;
   cursor: not-allowed;
 }
