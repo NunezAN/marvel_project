@@ -1,17 +1,25 @@
 //218ad171663f8304bfabed8c5e0ecd2d
 
 async function getCharacterSearch(searchCharacterinput) {
+    const comicsWrapper = document.querySelector(".main__comics");
+    const loadingresultsWrapper = document.querySelector(".comic__results--wrapper");
+    loadingresultsWrapper.classList += " comics__loading";
+    // comicsWrapper.classList += " comics__loading";
   
   const heroId = await getCharacterID(searchCharacterinput);
 //   console.log(heroId);
   if (heroId == null){
     const resultsWrapper = document.querySelector(".results");
-    resultsWrapper.innerHTML = `L BOZO, 0 results for \"${searchCharacterinput.toUpperCase()}\". Also try entering the first letters of the heroes name. (e.g. \"spid\" for spider-man)`;
-    const comicsWrapper = document.querySelector(".main__comics");
+    resultsWrapper.innerHTML = `<span class="results__text">L BOZO, 0 results for \"${searchCharacterinput.toUpperCase()}\". Also try entering the first letters of the heroes name. (e.g. \"spid\" for spider-man)</span>`;
+    // const comicsWrapper = document.querySelector(".main__comics");
     comicsWrapper.innerHTML = ``;
+    // comicsWrapper.classList.remove("comics__loading");
+    loadingresultsWrapper.classList.remove("comics__loading");
     return;
   }
-  getData(heroId,searchCharacterinput);
+  await getData(heroId,searchCharacterinput);
+//   comicsWrapper.classList.remove("comics__loading");
+  loadingresultsWrapper.classList.remove("comics__loading");
   //   const comicsWrapper = document.querySelector(".main__comics");
   //   console.log(comicData);
   //   const comicsHTML = comicData.map((comic) => htmlcomic(comic));
@@ -43,12 +51,7 @@ async function getData(heroIds, heroName) {
     comicsWrapper.innerHTML = allComicHTML;
     
 }
-// function status(res) {
-//     if (!res.ok) {
-//         throw new Error(res.statusText);
-//     }
-//     return res;
-// }
+
 function resultsHTML(resultsCount,heroName){
     const resultsWrapper = document.querySelector(".results");
     resultsWrapper.innerHTML = `

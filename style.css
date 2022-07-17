@@ -120,7 +120,7 @@ BODY
   flex: 1;
   border: none;
   outline: none;
-  padding:  0px 20px;
+  padding: 0px 20px;
   font-size: 24px;
   font-weight: bold 700;
   color: black;
@@ -222,8 +222,8 @@ select {
   margin-bottom: 8px;
   text-align: center;
 }
-.comic__year{
-    margin-bottom: 10px;
+.comic__year {
+  margin-bottom: 10px;
 }
 .comic__title:hover {
   text-decoration: underline;
@@ -256,4 +256,41 @@ select {
   transform: translatey(
     -50%
   ); /*move text back down to the center(50% of the parent)*/
+}
+
+/*----------------------------------------------------------------
+COMICS
+------------------------------------------------------------------*/
+.comics__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    font-size: 60px;
+    color: black;
+  }
+.comics__loading--spinner {
+  display: none !important;
+}
+.comics__loading .comic{
+    display: none;
+}
+.comics__loading .results__text{
+    display: none;
+}
+.comics__loading .fa-spinner {
+  display: flex !important;
+}
+.fa-spinner {
+  animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
