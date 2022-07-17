@@ -5,18 +5,20 @@ async function getCharacterSearch(searchCharacterinput) {
   const heroId = await getCharacterID(searchCharacterinput);
 //   console.log(heroId);
   if (heroId == null){
+    const resultsWrapper = document.querySelector(".results");
+    resultsWrapper.innerHTML = `L BOZO, 0 results for \"${searchCharacterinput.toUpperCase()}\". Also try entering the first letters of the heroes name. (e.g. \"spid\" for spider-man)`;
     const comicsWrapper = document.querySelector(".main__comics");
-    comicsWrapper.innerHTML = `L BOZO, 0 results for \"${searchCharacterinput.toUpperCase()}\". Also try entering the first letters of the heroes name. (e.g. \"spid\" for spider-man)`
+    comicsWrapper.innerHTML = ``;
     return;
   }
-  getData(heroId);
+  getData(heroId,searchCharacterinput);
   //   const comicsWrapper = document.querySelector(".main__comics");
   //   console.log(comicData);
   //   const comicsHTML = comicData.map((comic) => htmlcomic(comic));
   //   comicsWrapper.innerHTML = comicsHTML.join("");
 }
 
-async function getData(heroIds) {
+async function getData(heroIds, heroName) {
     let allComicHTML = "";
     let resultsCount = 0;
     const comicsWrapper = document.querySelector(".main__comics");
@@ -37,15 +39,23 @@ async function getData(heroIds) {
     allComicHTML += comicsHTML.join("");
     }
     console.log(resultsCount);
+    resultsHTML(resultsCount,heroName);
     comicsWrapper.innerHTML = allComicHTML;
     
 }
-function status(res) {
-    if (!res.ok) {
-        throw new Error(res.statusText);
-    }
-    return res;
+// function status(res) {
+//     if (!res.ok) {
+//         throw new Error(res.statusText);
+//     }
+//     return res;
+// }
+function resultsHTML(resultsCount,heroName){
+    const resultsWrapper = document.querySelector(".results");
+    resultsWrapper.innerHTML = `
+    <span class="results__text">Found ${resultsCount} results containing the hero name \"${heroName}\" </span>
+    `;
 }
+
 async function getCharacterID(heroName) {
   const heroFetchData = await fetch(
     `https://gateway.marvel.com:443/v1/public/characters?name=${heroName}&apikey=218ad171663f8304bfabed8c5e0ecd2d`

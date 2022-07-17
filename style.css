@@ -180,6 +180,7 @@ COMICS
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
 }
 select {
   background-color: #fff;
@@ -196,6 +197,7 @@ select {
 .section__title {
   text-align: center;
   font-size: 32px;
+  margin-bottom: 18px;
 }
 .comics {
   display: flex;
