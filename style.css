@@ -110,7 +110,7 @@ BODY
   /* justify-content: center; */
   justify-content: space-between;
   border-radius: 60px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   backdrop-filter: blur(4px) saturate(180%);
   animation: slideOut 2500ms ease;
 }
@@ -120,7 +120,7 @@ BODY
   flex: 1;
   border: none;
   outline: none;
-  padding: 24px 20px;
+  padding:  0px 20px;
   font-size: 24px;
   font-weight: bold 700;
   color: black;
