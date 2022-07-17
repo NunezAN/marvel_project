@@ -2,22 +2,38 @@
 
 async function getCharacterSearch(searchCharacterinput) {
   const comicsWrapper = document.querySelector(".main__comics");
-  const loadingresultsWrapper = document.querySelector(
-    ".comic__results--wrapper"
-  );
-  loadingresultsWrapper.classList += " comics__loading";
+//   const loadingresultsWrapper = document.querySelector(
+//     ".comic__results--wrapper"
+//   );
+//   loadingresultsWrapper.classList += " comics__loading";
+loading();
   const heroId = await getCharacterID(searchCharacterinput);
   if (heroId == null) {
     const resultsWrapper = document.querySelector(".results");
     resultsWrapper.innerHTML = `<span class="results__text">0 results for \"${searchCharacterinput.toUpperCase()}\". Also try entering the first letters of the heroes name. (e.g. \"spid\" for spider-man)</span>`;
     comicsWrapper.innerHTML = ``;
-    loadingresultsWrapper.classList.remove("comics__loading");
+    // loadingresultsWrapper.classList.remove("comics__loading");
+    doneLoading();
     return;
   }
   await getData(heroId, searchCharacterinput);
 
-  loadingresultsWrapper.classList.remove("comics__loading");
+  doneLoading();
 
+}
+
+function loading(){
+    const loadingresultsWrapper = document.querySelector(
+        ".comic__results--wrapper"
+      );
+      loadingresultsWrapper.classList += " comics__loading";
+}
+
+function doneLoading(){
+    const loadingresultsWrapper = document.querySelector(
+        ".comic__results--wrapper"
+      );
+      loadingresultsWrapper.classList.remove("comics__loading");
 }
 
 async function getData(heroIds, heroName) {
@@ -92,7 +108,6 @@ function searchComic(event) {
   event.preventDefault();
   const searchInput = document.getElementsByClassName("input__box");
   const searchCharacterinput = searchInput[0].value;
-  console.log(searchCharacterinput);
   if (!searchCharacterinput) {
     return;
   }
