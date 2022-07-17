@@ -269,9 +269,7 @@ COMICS
     font-size: 60px;
     color: black;
   }
-.comics__loading--spinner {
-  display: none !important;
-}
+
 .comics__loading .comic{
     display: none;
 }
@@ -284,6 +282,9 @@ COMICS
 .fa-spinner {
   animation: rotate 600ms infinite linear;
 }
+.comics__loading--spinner {
+    display: none !important;
+  }
 
 @keyframes rotate {
   0% {
