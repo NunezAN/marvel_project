@@ -19,7 +19,7 @@ a {
 }
 .clickable {
   cursor: pointer;
-  transition:all 300ms ease;
+  transition: all 300ms ease;
 }
 .clickable:hover .nav-link {
   color: red;
@@ -131,25 +131,22 @@ BODY
 }
 @keyframes slideOut {
   0% {
+    width: 10%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+@keyframes slideOut-text {
+  0% {
     width: 0;
-    
+    opacity: 0;
   }
 
   100% {
     width: 90%;
-    
+    opacity: 100%;
   }
-}
-  @keyframes slideOut-text{
-    0% {
-      width: 0;
-      opacity: 0;
-    }
-  
-    100% {
-      width: 90%;
-      opacity: 100%;
-    }
 }
 .fa-magnifying-glass {
   width: 25px;
@@ -209,12 +206,52 @@ select {
   width: 25%;
   padding: 24px;
 }
+.comic__img--wrapper {
+  position: relative;
+}
+.comic__img {
+  transition: all 450ms ease;
+}
+.comic:hover .comic__img {
+  filter: blur(4px);
+}
 .comic__title {
   font-size: 20px;
   margin-bottom: 8px;
   text-align: center;
 }
+.comic__year{
+    margin-bottom: 10px;
+}
 .comic__title:hover {
   text-decoration: underline;
   cursor: not-allowed;
+}
+.comic__wrapper--background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #1c1d25;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.comic:hover .comic__wrapper--background {
+  opacity: 0.7;
+}
+.comic__description {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translatey(100%); /*move the text to the bottom of the wrapper*/
+  color: white;
+  max-width: 550px;
+  opacity: 0; /*hide the text until hovered over*/
+  transition: opacity 300ms, transform 450ms ease; /*transition the text opacity and the movement smoothly*/
+}
+.comic:hover .comic__description {
+  opacity: 1;
+  transform: translatey(
+    -50%
+  ); /*move text back down to the center(50% of the parent)*/
 }

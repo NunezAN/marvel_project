@@ -65,15 +65,32 @@ async function getCharacterID(heroName) {
 
 function htmlcomic(comic) {
     // console.log(comic)
-  return `
+//   return `
+//     <div class="comic">   
+//         <figure class="comic__img--wrapper">
+//             <img class="comic__img" src="${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}" alt="">
+//         </figure>
+//         <div class="comic__title">
+//             ${comic.title}
+//         </div>
+//     </div>
+//     `;
+    // console.log(comic.description);
+    return `
     <div class="comic">   
         <figure class="comic__img--wrapper">
-            <img class="book__img" src="${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}" alt="">
+            <img class="comic__img" src="${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}" alt="">
+            <div class="comic__wrapper--background"></div>
+            <div class="comic__description">
+                <p class="comic__year">DATE RELEASED: ${comic.dates[0].date.substring(0,10)}</p>
+                <p class="comic__description--para">
+                    ${comic.description || "NO DESCRIPTION AVAILABLE"}
+                </p>
+            </div>
         </figure>
-        <div class="comic__title">
-            ${comic.title}
-        </div>
-    </div>
+    
+    <div class="comic__title">${comic.title}</div>
+</div>
     `;
 }
 
