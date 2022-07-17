@@ -285,7 +285,9 @@ COMICS
 .comics__loading--spinner {
     display: none !important;
   }
-
+  .comics__loading--spinner ::before{
+    display: none !important;
+  }
 @keyframes rotate {
   0% {
     transform: rotate(0);
