@@ -372,6 +372,7 @@ LOADING
     display: none;
   }
   .results {
-    margin: 0 24px;
+    max-width: 350px;
+    margin: 0 auto;
   }
 }
