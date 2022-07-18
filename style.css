@@ -327,7 +327,7 @@ LOADING
   }
   .comics__header {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 24px;
   }
   .results {
     max-width: 600px;
@@ -364,9 +364,6 @@ LOADING
   }
   .input__wrapper {
     width: 90%;
-  }
-  .comics__header {
-    margin: 0 24px;
   }
   .nav__links {
     display: none;
