@@ -307,8 +307,10 @@ LOADING
 }
 /* TABLETS, LARGE SMARTPHONES */
 @media (max-width: 768px) {
+    
     .input__box{
         animation: none;
+        font-size: 18px;
     }
     .input__wrapper{
         animation: none;
