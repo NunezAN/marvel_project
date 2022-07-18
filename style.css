@@ -37,6 +37,10 @@ a {
   background-position: center;
   background-repeat: repeat-x;
 }
+.comic__results--wrapper{
+    display: flex;
+    flex-direction: column;
+}
 
 /*----------------------------------------------------------------
 NAV BAR
@@ -100,6 +104,9 @@ BODY
 }
 .section__title {
   font-size: 45px;
+}
+.section__title--search{
+    margin-bottom: 18px;
 }
 .input__wrapper {
   width: 100%;
@@ -197,7 +204,6 @@ select {
 .section__title {
   text-align: center;
   font-size: 32px;
-  margin-bottom: 18px;
 }
 .comics {
   display: flex;
@@ -262,32 +268,33 @@ select {
 LOADING
 ------------------------------------------------------------------*/
 .comics__loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px;
-    font-size: 60px;
-    color: black;
-  }
-
-.comics__loading .comic{
-    display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  font-size: 60px;
+  color: black;
+  margin: 0 auto;
 }
-.comics__loading .results__text{
-    display: none;
+
+.comics__loading .comic {
+  display: none;
+}
+.comics__loading .results__text {
+  display: none;
 }
 .comics__loading .fa-spinner {
-  display: flex !important;
+  display: block !important;
 }
 .fa-spinner {
   animation: rotate 600ms infinite linear;
 }
 .comics__loading--spinner {
-    display: none !important;
-  }
-  .comics__loading--spinner ::before{
-    display: none !important;
-  }
+  display: none !important;
+}
+.comics__loading--spinner ::before {
+  display: none !important;
+}
 @keyframes rotate {
   0% {
     transform: rotate(0);
@@ -295,5 +302,48 @@ LOADING
 
   100% {
     transform: rotate(360deg);
+  }
+}
+/* TABLETS, LARGE SMARTPHONES */
+@media (max-width: 768px) {
+  .row {
+    max-width: 700px;
+  }
+  .comics__header {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .results {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .comic {
+    width: 50%;
+  }
+  .comic:active .comic__wrapper--background {
+    opacity: 0.7;
+  }
+  .comic:active .comic__description {
+    opacity: 1;
+    transform: translatey(
+      -50%
+    ); /*move text back down to the center(50% of the parent)*/
+  }
+  .results{
+    width: 100%;
+    text-align: left;
+  }
+  .comics__header{
+    margin-bottom: 16px;
+  }
+}
+
+/* SMALL PHONES, LARGE SMARTPHONE */
+@media (max-width: 550px) {
+  .row {
+    max-width: 500px;
+  }
+  .comic__description--para{
+    display: none;
   }
 }
