@@ -312,6 +312,9 @@ LOADING
     max-width: 100%;
     overflow-x: hidden;
   }
+  .clickable:hover{
+    transform: none;
+  }
   .input__box {
     animation: none;
     font-size: 18px;
@@ -336,10 +339,10 @@ LOADING
   .comic {
     width: 50%;
   }
-  .comic:hover,.comic:active .comic__wrapper--background {
+  .comic:active .comic__wrapper--background {
     opacity: 0.7;
   }
-  .comic:hover,.comic:active .comic__description {
+  .comic:active .comic__description {
     opacity: 1;
     transform: translatey(
       -50%
