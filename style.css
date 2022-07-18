@@ -309,6 +309,9 @@ LOADING
   .row {
     max-width: 700px;
   }
+  .container{
+    padding: 32px 0;
+  }
   .comics__header {
     max-width: 600px;
     margin: 0 auto;
@@ -345,5 +348,17 @@ LOADING
   }
   .comic__description--para{
     display: none;
+  }
+  .input__wrapper{
+    width: 90%;
+  }
+  .comics__header{
+    margin: 0 24px;
+  }
+  .nav__links{
+    display: none;
+  }
+  .results{
+    margin: 0 24px;
   }
 }
