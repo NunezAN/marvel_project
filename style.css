@@ -135,6 +135,7 @@ BODY
 }
 ::placeholder {
   visibility: visible;
+  color: #505050;
 }
 @keyframes slideOut {
   0% {
@@ -306,6 +307,12 @@ LOADING
 }
 /* TABLETS, LARGE SMARTPHONES */
 @media (max-width: 768px) {
+    .input__box{
+        animation: none;
+    }
+    .input__wrapper{
+        animation: none;
+    }
   .row {
     max-width: 700px;
   }
